@@ -1,0 +1,17 @@
+.navbar-custom {
+    background-color: #eb1717;
+}
+
+.custom-heading {
+    color: #d7dbd7;
+    font-weight: 800;
+    border-bottom: 3px solid rgb(240, 237, 236);
+    background: #eb1717;
+    padding: 8px 30px;
+    text-align: center;
+}
+
+.logo-img {
+    width: 120px;
+    height: auto; 
+  }
