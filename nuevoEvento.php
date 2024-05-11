@@ -10,10 +10,9 @@ $hora_inicio       = ucwords($_REQUEST['hora_inicio']);
 $hora_fin          = ucwords($_REQUEST['hora_fin']);
 $fecha_prox        = ucwords($_REQUEST['fecha_prox']);
 $pago              = ucwords($_REQUEST['pago']);
-$tipoCurso       = ucwords($_REQUEST['tipoCurso']);
+$tipoCurso         = ucwords($_REQUEST['tipoCurso']);
 $observacion       = ucwords($_REQUEST['observacion']);  
 $color_evento      = $_REQUEST['color_evento'];
-$asistio           = $_REQUEST['optradio'];
 $instructorId      = $_REQUEST['instructorId'];
 
 //convertir fecha al formato que quiere fullcalendar
@@ -26,6 +25,7 @@ $fecha_hora_str = $fecha_inicio . 'T' . $hora_fin;
 
 $timestamp2 = $fecha_hora_str;
 
+$asistencia = implode(',',$_POST['asistio']);
 
 $InsertNuevoEvento = "INSERT INTO eventoscalendar(
   evento,
@@ -37,9 +37,9 @@ $InsertNuevoEvento = "INSERT INTO eventoscalendar(
   tipoCurso,
   observacion,
   color_evento,
-  asistio,
   hora_inicio,
-  hora_fin
+  hora_fin,
+  asistio
   )
 VALUES (
   '" .$evento. "',
@@ -51,9 +51,9 @@ VALUES (
   '" .$tipoCurso. "',
   '" .$observacion. "',
   '" .$color_evento. "',
-  '" .$asistio. "',
   '" .$hora_inicio. "',
-  '" .$hora_fin. "'
+  '" .$hora_fin. "',
+  '" .$asistencia. "'
 )";
 $resultadoNuevoEvento = mysqli_query($con, $InsertNuevoEvento);
 

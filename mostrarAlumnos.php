@@ -84,7 +84,32 @@
                     echo '<td>' . $row['pago'] . '</td>';
                     echo '<td>' . $row['fecha_prox'] . '</td>';
                     echo '<td>' . $row['observacion'] . '</td>';
-                    echo '<td>' . ($row['asistio'] == 'No' ? 'No' : 'Si') . '</td>';
+                    //echo '<td>' . ($row['asistio'] == 'No' ? 'No' : 'Si') . '</td>';
+                    echo '<td>';
+        
+                    // Deserializar la cadena de asistencia para obtener el array
+                    $asistencia = explode(',',$row['asistio']);
+
+                    // Verificar si la deserialización fue exitosa y $asistencia es un array
+                    if (is_array($asistencia)) {
+                        // Mostrar el estado de cada checkbox
+                        for ($i = 1; $i <= 10; $i++) {
+                            echo '<input type="checkbox" name="asistio[]" value="clase'.$i.'"';
+                            if (in_array('clase'.$i, $asistencia)) {
+                                echo ' checked';
+                            }
+                            echo '>';
+                            //echo '<label for="clase'.$i.'">Clase '.$i.'</label>'; 
+                        }
+                    } else {
+                        // Si no hay datos de asistencia, mostrar todos los checkboxes desmarcados
+                        for ($i = 1; $i <= 10; $i++) {
+                            echo '<input type="checkbox" name="asistio[]" value="clase'.$i.'">';
+                            //echo '<label for="clase'.$i.'">Clase '.$i.'</label>'; 
+                        }
+                    }
+
+                    echo '</td>';
                     echo '</tr>';
                     $contador++;
                 }

@@ -19,12 +19,12 @@ CREATE TABLE `eventoscalendar` (
   `instructorId` int DEFAULT NULL,
   `pago` varchar(250) DEFAULT NULL,
   `tipoCurso` varchar(250) DEFAULT NULL,
-  `observacion` varchar(250) DEFAULT NULL,
+  `observacion` varchar(255) DEFAULT NULL,
   `color_evento` varchar(20) DEFAULT NULL,
   `fecha_inicio` varchar(20) DEFAULT NULL,
   `fecha_fin` varchar(20) DEFAULT NULL,
   `fecha_prox` varchar(20) DEFAULT NULL,  
-  `asistio` varchar(20) DEFAULT NULL,
+  `asistio` varchar(255) DEFAULT NULL,
   `hora_inicio` varchar(20) DEFAULT NULL,
   `hora_fin` varchar(20) DEFAULT NULL,  
    PRIMARY KEY (`id`),
@@ -37,10 +37,6 @@ CREATE TABLE `Instructor` (
   `foto` blob,
    PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
-ALTER TABLE `eventoscalendar`
-  ADD UNIQUE KEY `unique_instructor` (`instructorId`);
-
 
 
 COMMIT;
