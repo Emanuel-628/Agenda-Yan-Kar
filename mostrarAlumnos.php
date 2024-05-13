@@ -85,7 +85,7 @@
                     echo '<td>' . $row['fecha_prox'] . '</td>';
                     echo '<td>' . $row['observacion'] . '</td>';
                     //echo '<td>' . ($row['asistio'] == 'No' ? 'No' : 'Si') . '</td>';
-                    echo '<td>';
+                    echo '<td >';
         
                     // Deserializar la cadena de asistencia para obtener el array
                     $asistencia = explode(',',$row['asistio']);

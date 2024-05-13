@@ -1,5 +1,5 @@
 <?php
-//date_default_timezone_set("America/Bogota");
+
 setlocale(LC_ALL,"es_ES");
 
 include('config.php');
@@ -16,7 +16,6 @@ $pago              = ucwords($_REQUEST['pago']);
 $tipoCurso       = ucwords($_REQUEST['tipoCurso']);
 $observacion       = ucwords($_REQUEST['observacion']);  
 $color_evento      = $_REQUEST['color_evento'];
-$asistio           = $_REQUEST['optradio'];
 $instructorId        = $_REQUEST['instructorId'];
 
 //convertir fecha al formato que quiere fullcalendar
@@ -29,6 +28,8 @@ $fecha_hora_str = $fecha_inicio . 'T' . $hora_fin;
 
 $timestamp2 = $fecha_hora_str;
 
+$asistencia = implode(',',$_POST['asistio']);
+
 $UpdateProd = ("UPDATE eventoscalendar 
     SET 
         evento ='$evento',
@@ -40,7 +41,9 @@ $UpdateProd = ("UPDATE eventoscalendar
         tipoCurso = '$tipoCurso',
         observacion = '$observacion',
         color_evento ='$color_evento',
-        asistio ='$asistio'
+        hora_inicio = '$hora_inicio',
+        hora_fin = '$hora_fin',
+        asistio ='$asistencia'
     WHERE id='".$idEvento."' ");
 $result = mysqli_query($con, $UpdateProd);
 

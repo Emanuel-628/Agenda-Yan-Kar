@@ -116,6 +116,7 @@ $(document).ready(function() {
           pago: '<?php echo $dataEvento['pago']; ?>',
           tipoCurso: '<?php echo $dataEvento['tipoCurso']; ?>',
           observacion: '<?php echo $dataEvento['observacion']; ?>',
+          asistio: '<?php echo $dataEvento['asistio']; ?>',
           end:  '<?php echo $dataEvento['fecha_fin']; ?>',
           color: '<?php echo $dataEvento['color_evento']; ?>'  
         },
@@ -170,6 +171,15 @@ eventClick:function(event){
     $('input[name=pago').val(event.pago);
     $('input[name=tipoCurso').val(event.tipoCurso);
     $('input[name=observacion').val(event.observacion);
+
+    // Desmarcar todos los checkboxes primero
+    $('input[name="asistio[]"]').prop('checked', false);
+
+    // Recuperar valores de los checkboxes y marcarlos en el formulario modal
+    var asistencia = event.asistio.split(','); // Convertir la cadena de asistencia en un array
+    asistencia.forEach(function(value) {
+      $('input[name="asistio[]"][value="' + value + '"]').prop('checked', true);
+    });
 
     $("#modalUpdateEvento").modal();
   },

@@ -74,26 +74,39 @@
     </div>
     
     <div class="form-group">
-			<label class="col-sm-12 control-label">¿Asistio?</label>
-			<div class="col-sm-12">
-        <div class="form-check">
-          <label class="form-check-label" for="radio1">
-            <input type="radio" class="form-check-input" id="radio1" name="optradio" value="No" checked style="display: inline">No
-          </label>
+    <label for="asistio" class="col-sm-12 control-label">Asistencia</label>
+    <div class="row">
+        <div class="col-sm-6">
+            <?php
+            // Mostrar 5 checkboxes para las primeras 5 clases en una columna
+            for ($i = 1; $i <= 5; $i++) {
+                echo '<div class="form-check">';
+                echo '<input class="form-check-input" type="checkbox" name="asistio[]" value="clase'.$i.'" style="display: inline">';
+                echo '<label class="form-check-label" for="clase'.$i.'">Clase '.$i.'</label>'; 
+                echo '</div>';
+            }
+            ?>
         </div>
-      <div class="form-check">
-        <label class="form-check-label" for="radio2">
-          <input type="radio" class="form-check-input" id="radio2" name="optradio" value="Si" style="display: inline">Si
-        </label>
-      </div>
-		  </div>
+        <div class="col-sm-6">
+            <?php
+            // Mostrar 5 checkboxes para las últimas 5 clases en otra columna
+            for ($i = 6; $i <= 10; $i++) {
+                echo '<div class="form-check">';
+                echo '<input class="form-check-input" type="checkbox" name="asistio[]" value="clase'.$i.'" style="display: inline">';
+                echo '<label class="form-check-label" for="clase'.$i.'">Clase '.$i.'</label>'; 
+                echo '</div>';
+            }
+            ?>
+        </div>
     </div>
+</div>
+
     
 
     <div class="form-group">
 			<label for="observacion" class="col-sm-12 control-label">Observacion</label>
 			<div class="col-sm-10">
-				<input type="text" class="form-control" name="observacion" id="observacion"/>
+				<input type="textarea" class="form-control" name="observacion" id="observacion"/>
 			</div>
 		</div>
 
