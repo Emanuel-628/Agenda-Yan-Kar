@@ -26,10 +26,22 @@
       </div>
 		</div>
   
-  <div class="form-group">
+    <div class="form-group">
 			<label for="evento" class="col-sm-12 control-label">Nombre del Alumno</label>
 			<div class="col-sm-10">
 				<input type="text" class="form-control" name="evento" id="evento" />
+			</div>
+		</div>
+    <div class="form-group">
+			<label for="ci" class="col-sm-12 control-label">Numero de cedula</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" name="ci" id="ci" />
+			</div>
+		</div>
+    <div class="form-group">
+			<label for="cel" class="col-sm-12 control-label">Numero de telefono</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" name="cel" id="cel" />
 			</div>
 		</div>
     <div class="form-group">
@@ -63,6 +75,12 @@
 			<label for="pago" class="col-sm-12 control-label">Costo de Curso</label>
 			<div class="col-sm-10">
 				<input type="text" class="form-control" name="pago" id="pago"/>
+			</div>
+		</div>
+    <div class="form-group">
+			<label for="fecha_ult" class="col-sm-12 control-label">Fecha de Ultima Clase</label>
+			<div class="col-sm-10">
+				<input type="date" class="form-control" name="fecha_ult" id="fecha_ult" />
 			</div>
 		</div>
     <div class="form-group">
@@ -104,7 +122,7 @@
     <div class="form-group">
 			<label for="observacion" class="col-sm-12 control-label">Observacion</label>
 			<div class="col-sm-10">
-				<input type="text" class="form-control" name="observacion" id="observacion"/>
+				<textarea class="form-control" name="observacion" id="observacion"></textarea>
 			</div>
 		</div>
 

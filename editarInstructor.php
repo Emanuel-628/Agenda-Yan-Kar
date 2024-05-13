@@ -52,8 +52,16 @@ if(isset($_GET['id']) && !empty($_GET['id'])) {
                     <label for="instructor">Nombre del Paciente:</label>
                     <input type="text" class="form-control" id="instructor" name="instructor" value="<?php echo $instructor['instructor']; ?>">
                 </div>
+                <div class="mb-3">
+                    <label for="instructor" class="form-label">Cedula de Identidad</label>
+                    <input type="text" class="form-control" id="ci" name="ci" value="<?php echo $instructor['ci']; ?>">
+                </div>
+                <div class="mb-3">
+                    <label for="instructor" class="form-label">Numero de telefono</label>
+                    <input type="text" class="form-control" id="cel" name="cel" value="<?php echo $instructor['cel']; ?>">
+                </div>
                 <div class = "mb-3">
-                    <label for = "foto">  Foto </label>
+                    <label for = "foto">Foto </label>
                     <input type ="file" class="form-control-file" name="foto" id ="foto">
                 </div>
                 <button type="submit" class="btn btn-primary">Actualizar</button>

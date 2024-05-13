@@ -7,6 +7,8 @@ if(isset($_POST['id']) && !empty($_POST['id'])) {
     // Obtener los datos del formulario
     $id = $_POST['id'];
     $nombre = $_POST['instructor'];
+    $ci = $_POST['ci'];
+    $cel = $_POST['cel'];
 
     // Manejo de la imagen
     $nombreImagen = $_FILES['foto']['name'];
@@ -26,7 +28,13 @@ if(isset($_POST['id']) && !empty($_POST['id'])) {
 
 
     // Consultar la base de datos para actualizar el registro del paciente
-    $query = "UPDATE Instructor SET instructor = '$nombre', foto = '$nombreImagenEscapado' WHERE id = $id";
+    $query = "UPDATE Instructor 
+    SET 
+    instructor = '$nombre',
+    ci = '$ci',
+    cel = '$cel',
+    foto = '$nombreImagenEscapado' 
+    WHERE id = $id";
     $result = mysqli_query($con, $query);
 
     // Verificar si la consulta se ejecutó correctamente

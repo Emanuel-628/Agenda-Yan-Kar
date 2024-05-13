@@ -68,6 +68,8 @@
                 <th>N°</th>
                 <th>Foto</th>
                 <th>Instructor</th>
+                <th>Numero de Cedula</th>
+                <th>Numero de telefono</th>
                 <th>Editar</th>
                 <th>Eliminar</th>
                 </tr></thead>';
@@ -77,6 +79,8 @@
                     echo '<td>' . $contador . '</td>';
                     echo '<td style="text-align: center;"><img src="/agenda2/uploads/' . $row['foto'] . '" alt="Foto Instructor" width="100"></td>';
                     echo '<td style="text-align: center;">' . $row['instructor'] . '</td>';
+                    echo '<td style="text-align: center;">' . $row['ci'] . '</td>';
+                    echo '<td style="text-align: center;">' . $row['cel'] . '</td>';
                     echo '<td><button type="button" class="btn btn-warning" onclick="editarInstructor(' . $row['id'] . ')">Editar</button></td>'; // Botón de editar
                     echo '<td><button type="button" class="btn btn-danger" onclick="eliminarInstructor(' . $row['id'] . ')">Eliminar</button></td>'; // Botón de eliminar
                     echo '</tr>';

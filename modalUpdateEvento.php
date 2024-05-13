@@ -34,6 +34,18 @@
 			</div>
 		</div>
     <div class="form-group">
+			<label for="ci" class="col-sm-12 control-label">Numero de cedula</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" name="ci" id="ci" />
+			</div>
+		</div>
+    <div class="form-group">
+			<label for="cel" class="col-sm-12 control-label">Numero de telefono</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" name="cel" id="cel" />
+			</div>
+		</div>
+    <div class="form-group">
       <label for="fecha_inicio" class="col-sm-12 control-label">Fecha de Hoy</label>
       <div class="col-sm-10">
         <input type="text" class="form-control" name="fecha_inicio" id="fecha_inicio" placeholder="Fecha Inicio">
@@ -64,6 +76,12 @@
 			<label for="pago" class="col-sm-12 control-label">Costo de Curso</label>
 			<div class="col-sm-10">
 				<input type="text" class="form-control" name="pago" id="pago"/>
+			</div>
+		</div>
+    <div class="form-group">
+			<label for="fecha_ult" class="col-sm-12 control-label">Fecha de Ultima Clase</label>
+			<div class="col-sm-10">
+				<input type="date" class="form-control" name="fecha_ult" id="fecha_ult" />
 			</div>
 		</div>
     <div class="form-group">
@@ -106,30 +124,30 @@
     <div class="form-group">
 			<label for="observacion" class="col-sm-12 control-label">Observacion</label>
 			<div class="col-sm-10">
-				<input type="textarea" class="form-control" name="observacion" id="observacion"/>
+				<textarea class="form-control" name="observacion" id="observacion"></textarea>
 			</div>
 		</div>
 
 
-  <div class="col-md-12" id="grupoRadio">
-  
-  <input type="radio" name="color_evento" id="orange" value="#FF5722" checked>
-  <label for="orange" class="circu" style="background-color: #FF5722;"> </label>
+    <div class="col-md-12 activado">
+ 
+ <input type="radio" name="color_evento" id="orangeUpd" value="#FF5722" checked>
+ <label for="orangeUpd" class="circu" style="background-color: #FF5722;"> </label>
 
-  <input type="radio" name="color_evento" id="amber" value="#FFC107">  
-  <label for="amber" class="circu" style="background-color: #FFC107;"> </label>
+ <input type="radio" name="color_evento" id="amberUpd" value="#FFC107">  
+ <label for="amberUpd" class="circu" style="background-color: #FFC107;"> </label>
 
-  <input type="radio" name="color_evento" id="lime" value="#8BC34A">  
-  <label for="lime" class="circu" style="background-color: #8BC34A;"> </label>
+ <input type="radio" name="color_evento" id="limeUpd" value="#8BC34A">  
+ <label for="limeUpd" class="circu" style="background-color: #8BC34A;"> </label>
 
-  <input type="radio" name="color_evento" id="teal" value="#009688">  
-  <label for="teal" class="circu" style="background-color: #009688;"> </label>
+ <input type="radio" name="color_evento" id="tealUpd" value="#009688">  
+ <label for="tealUpd" class="circu" style="background-color: #009688;"> </label>
 
-  <input type="radio" name="color_evento" id="blue" value="#2196F3">  
-  <label for="blue" class="circu" style="background-color: #2196F3;"> </label>
+ <input type="radio" name="color_evento" id="blueUpd" value="#2196F3">  
+ <label for="blueUpd" class="circu" style="background-color: #2196F3;"> </label>
 
-  <input type="radio" name="color_evento" id="indigo" value="#9c27b0">  
-  <label for="indigo" class="circu" style="background-color: #9c27b0;"> </label>
+ <input type="radio" name="color_evento" id="indigoUpd" value="#9c27b0">  
+ <label for="indigoUpd" class="circu" style="background-color: #9c27b0;"> </label>
 
 </div>
 		

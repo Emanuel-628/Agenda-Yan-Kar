@@ -11,7 +11,10 @@ $hora_fin          = ucwords($_REQUEST['hora_fin']);
 $fecha_prox        = ucwords($_REQUEST['fecha_prox']);
 $pago              = ucwords($_REQUEST['pago']);
 $tipoCurso         = ucwords($_REQUEST['tipoCurso']);
-$observacion       = ucwords($_REQUEST['observacion']);  
+$observacion       = ucwords($_REQUEST['observacion']);
+$ci                = ucwords($_REQUEST['ci']);  
+$cel               = ucwords($_REQUEST['cel']);  
+$fecha_ult         = ucwords($_REQUEST['fecha_ult']);    
 $color_evento      = $_REQUEST['color_evento'];
 $instructorId      = $_REQUEST['instructorId'];
 
@@ -25,7 +28,7 @@ $fecha_hora_str = $fecha_inicio . 'T' . $hora_fin;
 
 $timestamp2 = $fecha_hora_str;
 
-$asistencia = implode(',',$_POST['asistio']);
+$asistencia = isset($_POST['asistio']) ? implode(',', $_POST['asistio']) : '';
 
 $InsertNuevoEvento = "INSERT INTO eventoscalendar(
   evento,
@@ -36,6 +39,9 @@ $InsertNuevoEvento = "INSERT INTO eventoscalendar(
   pago,
   tipoCurso,
   observacion,
+  ci,
+  cel,
+  fecha_ult,
   color_evento,
   hora_inicio,
   hora_fin,
@@ -50,6 +56,9 @@ VALUES (
   '" .$pago. "',
   '" .$tipoCurso. "',
   '" .$observacion. "',
+  '" .$ci. "',
+  '" .$cel. "',
+  '" .$fecha_ult. "',
   '" .$color_evento. "',
   '" .$hora_inicio. "',
   '" .$hora_fin. "',

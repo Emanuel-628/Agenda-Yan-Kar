@@ -67,9 +67,12 @@
                 echo '<thead><tr>
                 <th>N°</th>
                 <th>Alumno</th>
+                <th>Numero de Cedula</th>
+                <th>Numero de telefono</th>
                 <th>Instructor</th>
                 <th>Tipo de Curso</th>
                 <th>Costo de Curso</th>
+                <th>Fecha de ultima clase</th>
                 <th>Fecha de Proxima Clase</th>
                 <th>Observacion</th>
                 <th>Asistencia</th>
@@ -79,12 +82,14 @@
                     echo '<tr>';
                     echo '<td>' . $contador . '</td>';
                     echo '<td>' . $row['evento'] . '</td>';
+                    echo '<td>' . $row['ci'] . '</td>';
+                    echo '<td>' . $row['cel'] . '</td>';
                     echo '<td>' . $row['instructor'] . '</td>';
                     echo '<td>' . $row['tipoCurso'] . '</td>';
                     echo '<td>' . $row['pago'] . '</td>';
                     echo '<td>' . $row['fecha_prox'] . '</td>';
+                    echo '<td>' . $row['fecha_ult'] . '</td>';
                     echo '<td>' . $row['observacion'] . '</td>';
-                    //echo '<td>' . ($row['asistio'] == 'No' ? 'No' : 'Si') . '</td>';
                     echo '<td >';
         
                     // Deserializar la cadena de asistencia para obtener el array

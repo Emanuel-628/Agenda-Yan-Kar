@@ -34,6 +34,14 @@
           <label for="instructor" class="form-label">Nombre del Instructor</label>
           <input type="text" class="form-control" id="instructor" name="instructor">
         </div>
+        <div class="mb-3">
+          <label for="ci" class="form-label">Cedula de Identidad</label>
+          <input type="text" class="form-control" id="ci" name="ci">
+        </div>
+        <div class="mb-3">
+          <label for="cel" class="form-label">Numero de telefono</label>
+          <input type="text" class="form-control" id="cel" name="cel">
+        </div>
         <div class = "mb-3">
           <label for = "foto">  Foto </label>
           <input type ="file" class="form-control-file" name="foto" id ="foto">

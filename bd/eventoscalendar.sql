@@ -23,7 +23,10 @@ CREATE TABLE `eventoscalendar` (
   `color_evento` varchar(20) DEFAULT NULL,
   `fecha_inicio` varchar(20) DEFAULT NULL,
   `fecha_fin` varchar(20) DEFAULT NULL,
-  `fecha_prox` varchar(20) DEFAULT NULL,  
+  `fecha_prox` varchar(20) DEFAULT NULL,
+  `fecha_ult` varchar(20) DEFAULT NULL,
+  `ci` varchar(20) DEFAULT NULL, 
+  `cel` varchar(20) DEFAULT NULL, 
   `asistio` varchar(255) DEFAULT NULL,
   `hora_inicio` varchar(20) DEFAULT NULL,
   `hora_fin` varchar(20) DEFAULT NULL,  
@@ -34,6 +37,8 @@ CREATE TABLE `eventoscalendar` (
 CREATE TABLE `Instructor` (
   `id` int NOT NULL AUTO_INCREMENT,
   `instructor` varchar(250) DEFAULT NULL,
+  `ci` varchar(20) DEFAULT NULL,
+  `cel` varchar(20) DEFAULT NULL,
   `foto` blob,
    PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;

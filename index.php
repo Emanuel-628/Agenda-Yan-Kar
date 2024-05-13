@@ -162,15 +162,15 @@ eventRender: function(event, element) {
 //Modificar Evento del Calendario 
 eventClick:function(event){
     var idEvento = event._id;
-    $('input[name=idEvento').val(idEvento);
-    $('input[name=evento').val(event.title);
-    $('input[name=fecha_inicio').val(event.start.format('DD-MM-YYYY'));
+    $('input[name=idEvento]').val(idEvento);
+    $('input[name=evento]').val(event.title);
+    $('input[name=fecha_inicio]').val(event.start.format('DD-MM-YYYY'));
     $('input[name=fecha_prox]').val(event.fecha_prox);
-    $('input[name=hora_inicio').val(event.hora_inicio);
+    $('input[name=hora_inicio]').val(event.hora_inicio);
     $('input[name=hora_fin]').val(event.hora_fin);
-    $('input[name=pago').val(event.pago);
-    $('input[name=tipoCurso').val(event.tipoCurso);
-    $('input[name=observacion').val(event.observacion);
+    $('input[name=pago]').val(event.pago);
+    $('input[name=tipoCurso]').val(event.tipoCurso);
+    $('textarea[name=observacion]').val(event.observacion);
 
     // Desmarcar todos los checkboxes primero
     $('input[name="asistio[]"]').prop('checked', false);

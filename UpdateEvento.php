@@ -13,10 +13,13 @@ $hora_inicio       = ucwords($_REQUEST['hora_inicio']);
 $hora_fin          = ucwords($_REQUEST['hora_fin']);
 $fecha_prox        = ucwords($_REQUEST['fecha_prox']);
 $pago              = ucwords($_REQUEST['pago']);
-$tipoCurso       = ucwords($_REQUEST['tipoCurso']);
-$observacion       = ucwords($_REQUEST['observacion']);  
+$tipoCurso         = ucwords($_REQUEST['tipoCurso']);
+$observacion       = ucwords($_REQUEST['observacion']);
+$ci                = ucwords($_REQUEST['ci']);  
+$cel               = ucwords($_REQUEST['cel']);  
+$fecha_ult         = ucwords($_REQUEST['fecha_ult']);     
 $color_evento      = $_REQUEST['color_evento'];
-$instructorId        = $_REQUEST['instructorId'];
+$instructorId      = $_REQUEST['instructorId'];
 
 //convertir fecha al formato que quiere fullcalendar
 $fecha_hora_str = $fecha_inicio . 'T' . $hora_inicio;
@@ -40,6 +43,9 @@ $UpdateProd = ("UPDATE eventoscalendar
         pago = '$pago',
         tipoCurso = '$tipoCurso',
         observacion = '$observacion',
+        ci = '$ci',
+        cel = '$cel',
+        fecha_ult = '$fecha_ult',
         color_evento ='$color_evento',
         hora_inicio = '$hora_inicio',
         hora_fin = '$hora_fin',
