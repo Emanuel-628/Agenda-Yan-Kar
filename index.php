@@ -116,6 +116,9 @@ $(document).ready(function() {
           pago: '<?php echo $dataEvento['pago']; ?>',
           tipoCurso: '<?php echo $dataEvento['tipoCurso']; ?>',
           observacion: '<?php echo $dataEvento['observacion']; ?>',
+          ci: '<?php echo $dataEvento['ci']; ?>',
+          cel: '<?php echo $dataEvento['cel']; ?>',
+          fecha_ult: '<?php echo $dataEvento['fecha_ult']; ?>',
           asistio: '<?php echo $dataEvento['asistio']; ?>',
           end:  '<?php echo $dataEvento['fecha_fin']; ?>',
           color: '<?php echo $dataEvento['color_evento']; ?>'  
@@ -171,6 +174,9 @@ eventClick:function(event){
     $('input[name=pago]').val(event.pago);
     $('input[name=tipoCurso]').val(event.tipoCurso);
     $('textarea[name=observacion]').val(event.observacion);
+    $('input[name=ci]').val(event.ci);
+    $('input[name=cel]').val(event.cel);
+    $('input[name=fecha_ult]').val(event.fecha_ult);
 
     // Desmarcar todos los checkboxes primero
     $('input[name="asistio[]"]').prop('checked', false);
