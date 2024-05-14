@@ -31,7 +31,9 @@
 <?php
 include('config.php');
 
-  $SqlEventos   = ("SELECT * FROM eventoscalendar");
+  //$SqlEventos   = ("SELECT * FROM eventoscalendar");
+  $SqlEventos = "SELECT e.*, p.instructor FROM eventoscalendar AS e
+  LEFT JOIN Instructor AS p ON e.instructorId = p.id";
   $resulEventos = mysqli_query($con, $SqlEventos);
 
 ?>
@@ -110,6 +112,7 @@ $(document).ready(function() {
           _id: '<?php echo $dataEvento['id']; ?>',
           title: '<?php echo $dataEvento['evento']; ?>',
           start: '<?php echo $dataEvento['fecha_inicio']; ?>',
+          instructor: '<?php echo $dataEvento['instructor']; ?>',
           fecha_prox: '<?php echo $dataEvento['fecha_prox']; ?>',
           hora_inicio: '<?php echo $dataEvento['hora_inicio']; ?>',
           hora_fin: '<?php echo $dataEvento['hora_fin']; ?>',
@@ -133,7 +136,7 @@ eventRender: function(event, element) {
       .prepend("<span id='btnCerrar'; class='closeon material-icons'>&#xe5cd;</span>");
     
     // Agregar informacion al título del evento
-    element.find(".fc-title").append(" - Proxima fecha de pago: " + event.fecha_prox);
+    element.find(".fc-title").append(" -  " + event.instructor + " -  Fecha de proxima clase: " + event.fecha_prox);
     
     //Eliminar evento
     element.find(".closeon").on("click", function() {
