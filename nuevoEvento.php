@@ -9,7 +9,6 @@ $fecha_inicio      = date('Y-m-d', strtotime($f_inicio));
 $hora_inicio       = ucwords($_REQUEST['hora_inicio']);
 $hora_fin          = ucwords($_REQUEST['hora_fin']);
 $fecha_prox        = ucwords($_REQUEST['fecha_prox']);
-$pago              = ucwords($_REQUEST['pago']);
 $tipoCurso         = ucwords($_REQUEST['tipoCurso']);
 $observacion       = ucwords($_REQUEST['observacion']);
 $ci                = ucwords($_REQUEST['ci']);  
@@ -36,7 +35,6 @@ $InsertNuevoEvento = "INSERT INTO eventoscalendar(
   fecha_inicio,
   fecha_prox,
   fecha_fin,
-  pago,
   tipoCurso,
   observacion,
   ci,
@@ -53,7 +51,6 @@ VALUES (
   '". $timestamp."',
   '". $fecha_prox."',
   '" .$timestamp2. "',
-  '" .$pago. "',
   '" .$tipoCurso. "',
   '" .$observacion. "',
   '" .$ci. "',

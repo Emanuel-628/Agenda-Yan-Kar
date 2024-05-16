@@ -73,12 +73,6 @@
       </div>
 		</div>
     <div class="form-group">
-			<label for="pago" class="col-sm-12 control-label">Costo de Curso</label>
-			<div class="col-sm-10">
-				<input type="text" class="form-control" name="pago" id="pago"/>
-			</div>
-		</div>
-    <div class="form-group">
 			<label for="fecha_ult" class="col-sm-12 control-label">Fecha de Ultima Clase</label>
 			<div class="col-sm-10">
 				<input type="date" class="form-control" name="fecha_ult" id="fecha_ult" />

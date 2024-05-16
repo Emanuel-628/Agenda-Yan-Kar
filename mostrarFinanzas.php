@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Historial de Alumnos</title>
+    <title>Historial de Finanzas</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
     <link rel="icon" type="image/jpg" href="/agenda2/yankar.jpg">
@@ -42,23 +42,29 @@
     </ul>
     </div>
 </nav>
+    <?php
+    // Incluir el archivo de configuración de la base de datos
+    include('config.php');
 
+    // Incluir el archivo de cálculo de recaudación
+    include('calculoIngreso.php');
+    ?>
 
     <div class="container mt-3">
-        <h3 class="custom-heading">Historial de Alumnos</h3>
+        <h3 class="custom-heading">Historial de Finanzas</h3>
+        <div class="mt-3">
+            <div>Recaudación por día: <?php echo "$" . number_format($recaudacionDia, 2); ?></div>
+            <div>Recaudación por semana: <?php echo "$" . number_format($recaudacionSemana, 2); ?></div>
+            <div>Recaudación por mes: <?php echo "$" . number_format($recaudacionMes, 2); ?></div>
+        </div>
         <div id="listaEventos" class="mt-3">
+        
             <?php
-            
-            // Incluir el archivo de configuración de la base de datos
-            include('config.php');
+include('config.php');
+        $query = "SELECT e.evento,e.fecha_inicio, e.ci, f.pago, f.medioPago, f.receptor, f.observacion
+          FROM Finanzas AS f
+          LEFT JOIN eventoscalendar AS e ON f.alumnoId = e.id";
 
-            // Consultar todos los eventos en la base de datos
-            //$sql = "SELECT * FROM eventoscalendar";
-            //$resultado = mysqli_query($con, $sql);
-            
-
-            $query = "SELECT e.*, p.instructor, p.foto FROM eventoscalendar AS e
-            LEFT JOIN Instructor AS p ON e.instructorId = p.id";
             $result = mysqli_query($con, $query);
 
             $contador = 1;
@@ -69,14 +75,12 @@
                 echo '<thead><tr>
                 <th>N°</th>
                 <th>Alumno</th>
-                <th>Numero de Cedula</th>
-                <th>Numero de telefono</th>
-                <th>Instructor</th>
-                <th>Tipo de Curso</th>
-                <th>Fecha de ultima clase</th>
-                <th>Fecha de Proxima Clase</th>
+                <th>C.I.</th>
+                <th>Pago</th>
+                <th>Metodo de pago</th>
+                <th>Cuenta que recibe</th>
                 <th>Observacion</th>
-                <th>Asistencia</th>
+                <th>Fecha de pago</th>
                 </tr></thead>';
                 echo '<tbody>';
                 while ($row = mysqli_fetch_assoc($result)) {   
@@ -84,37 +88,12 @@
                     echo '<td>' . $contador . '</td>';
                     echo '<td>' . $row['evento'] . '</td>';
                     echo '<td>' . $row['ci'] . '</td>';
-                    echo '<td>' . $row['cel'] . '</td>';
-                    echo '<td>' . $row['instructor'] . '</td>';
-                    echo '<td>' . $row['tipoCurso'] . '</td>';
-                    echo '<td>' . $row['fecha_ult'] . '</td>';
-                    echo '<td>' . $row['fecha_prox'] . '</td>';
+                    echo '<td>' . $row['pago'] . '</td>';
+                    echo '<td>' . $row['medioPago'] . '</td>';
+                    echo '<td>' . $row['receptor'] . '</td>';
                     echo '<td>' . $row['observacion'] . '</td>';
-                    echo '<td >';
-        
-                    // Deserializar la cadena de asistencia para obtener el array
-                    $asistencia = explode(',',$row['asistio']);
-
-                    // Verificar si la deserialización fue exitosa y $asistencia es un array
-                    if (is_array($asistencia)) {
-                        // Mostrar el estado de cada checkbox
-                        for ($i = 1; $i <= 10; $i++) {
-                            echo '<input type="checkbox" name="asistio[]" value="clase'.$i.'"';
-                            if (in_array('clase'.$i, $asistencia)) {
-                                echo ' checked';
-                            }
-                            echo '>';
-                            //echo '<label for="clase'.$i.'">Clase '.$i.'</label>'; 
-                        }
-                    } else {
-                        // Si no hay datos de asistencia, mostrar todos los checkboxes desmarcados
-                        for ($i = 1; $i <= 10; $i++) {
-                            echo '<input type="checkbox" name="asistio[]" value="clase'.$i.'">';
-                            //echo '<label for="clase'.$i.'">Clase '.$i.'</label>'; 
-                        }
-                    }
-
-                    echo '</td>';
+                    //echo '<td>' . $row['fecha_inicio'] . '</td>';
+                    echo '<td>' . substr($row['fecha_inicio'], 0, 10) . '</td>';
                     echo '</tr>';
                     $contador++;
                 }

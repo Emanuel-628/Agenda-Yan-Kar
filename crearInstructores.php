@@ -13,13 +13,15 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
     <div class="container">
-      <a href="index.php" class="navbar-brand">
-        <img src="/agenda2/yankar.jpg" alt="Yan-kar" class="logo-img">
-      </a>        
-      <ul class="navbar-nav">
-      <li class="nav-item"><a href="mostrarAlumnos.php" class="nav-link">Historial de Alumnos</a></li>
-      <li class="nav-item"><a href="crearInstructores.php" class="nav-link">Crear Instructores</a></li>
-      <li class="nav-item"><a href="mostrarInstructores.php" class="nav-link">Lista de Instructores</a></li>    
+        <a href="index.php" class="navbar-brand">
+          <img src="/agenda2/yankar.jpg" alt="Yan-kar" class="logo-img">
+        </a>
+        <ul class="navbar-nav">        
+        <li class="nav-item"><a href="mostrarAlumnos.php" class="nav-link">Historial de Alumnos</a></li>
+        <li class="nav-item"><a href="crearInstructores.php" class="nav-link">Crear Instructores</a></li>
+        <li class="nav-item"><a href="mostrarInstructores.php" class="nav-link">Lista de Instructores</a></li>   
+        <li class="nav-item"><a href="finanzas.php" class="nav-link">Finanzas</a></li>
+        <li class="nav-item"><a href="mostrarFinanzas.php" class="nav-link">Historial de Finanzas</a></li> 
     </ul>
     </div>
 </nav>

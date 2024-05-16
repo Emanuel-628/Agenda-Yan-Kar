@@ -17,7 +17,6 @@ CREATE TABLE `eventoscalendar` (
   `id` int NOT NULL AUTO_INCREMENT,
   `evento` varchar(250) DEFAULT NULL,
   `instructorId` int DEFAULT NULL,
-  `pago` varchar(250) DEFAULT NULL,
   `tipoCurso` varchar(250) DEFAULT NULL,
   `observacion` varchar(255) DEFAULT NULL,
   `color_evento` varchar(20) DEFAULT NULL,
@@ -43,5 +42,16 @@ CREATE TABLE `Instructor` (
    PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+CREATE TABLE `Finanzas` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `recaudacion` int DEFAULT NULL,
+  `pago` int DEFAULT NULL,
+  `medioPago` varchar(200) DEFAULT NULL,
+  `receptor` varchar(255) DEFAULT NULL,
+  `observacion` varchar(255) DEFAULT NULL,
+  `alumnoId` int DEFAULT NULL,
+   PRIMARY KEY (`id`),
+   FOREIGN KEY (alumnoId) REFERENCES eventoscalendar(id)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 COMMIT;

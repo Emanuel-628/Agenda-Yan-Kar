@@ -20,10 +20,12 @@
         <a href="index.php" class="navbar-brand">
           <img src="/agenda2/yankar.jpg" alt="Yan-kar" class="logo-img">
         </a>
-        <ul class="navbar-nav">
+        <ul class="navbar-nav">        
         <li class="nav-item"><a href="mostrarAlumnos.php" class="nav-link">Historial de Alumnos</a></li>
         <li class="nav-item"><a href="crearInstructores.php" class="nav-link">Crear Instructores</a></li>
-        <li class="nav-item"><a href="mostrarInstructores.php" class="nav-link">Lista de Instructores</a></li>    
+        <li class="nav-item"><a href="mostrarInstructores.php" class="nav-link">Lista de Instructores</a></li>   
+        <li class="nav-item"><a href="finanzas.php" class="nav-link">Finanzas</a></li>
+        <li class="nav-item"><a href="mostrarFinanzas.php" class="nav-link">Historial de Finanzas</a></li> 
     </ul>
     </div>
 </nav>
@@ -116,7 +118,6 @@ $(document).ready(function() {
           fecha_prox: '<?php echo $dataEvento['fecha_prox']; ?>',
           hora_inicio: '<?php echo $dataEvento['hora_inicio']; ?>',
           hora_fin: '<?php echo $dataEvento['hora_fin']; ?>',
-          pago: '<?php echo $dataEvento['pago']; ?>',
           tipoCurso: '<?php echo $dataEvento['tipoCurso']; ?>',
           observacion: '<?php echo $dataEvento['observacion']; ?>',
           ci: '<?php echo $dataEvento['ci']; ?>',
@@ -174,7 +175,6 @@ eventClick:function(event){
     $('input[name=fecha_prox]').val(event.fecha_prox);
     $('input[name=hora_inicio]').val(event.hora_inicio);
     $('input[name=hora_fin]').val(event.hora_fin);
-    $('input[name=pago]').val(event.pago);
     $('input[name=tipoCurso]').val(event.tipoCurso);
     $('textarea[name=observacion]').val(event.observacion);
     $('input[name=ci]').val(event.ci);
