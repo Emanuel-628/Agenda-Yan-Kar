@@ -9,7 +9,12 @@
     <link rel="icon" type="image/jpg" href="/agenda2/yankar.jpg">
 
 <!-- CSS de DataTables -->
+<!--
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+-->
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.0.7/css/dataTables.dataTables.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/3.0.2/css/buttons.dataTables.css">
 
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/2.0.5/css/dataTables.bootstrap4.css">
@@ -18,12 +23,21 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 <!-- JavaScript de DataTables -->
+<!--
 <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="https://cdn.datatables.net/2.0.5/js/dataTables.js"></script>
 <script src="https://cdn.datatables.net/2.0.5/js/dataTables.bootstrap4.js"></script>
+-->
+<script src="https://cdn.datatables.net/2.0.7/js/dataTables.js"></script>
+<script src="https://cdn.datatables.net/buttons/3.0.2/js/dataTables.buttons.js"></script>
+<script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.dataTables.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.print.min.js"></script>
 
 </head>
 <body>
@@ -57,6 +71,20 @@
             <div>Recaudación por semana: <?php echo "$" . number_format($recaudacionSemana, 2); ?></div>
             <div>Recaudación por mes: <?php echo "$" . number_format($recaudacionMes, 2); ?></div>
         </div>
+
+        <div class="row mb-3">
+        <div class="col-md-4">
+            <label for="min-date">Fecha Inicio:</label>
+            <input type="date" id="min-date" class="form-control">
+        </div>
+        <div class="col-md-4">
+            <label for="max-date">Fecha Fin:</label>
+            <input type="date" id="max-date" class="form-control">
+        </div>
+        <div class="col-md-4 d-flex align-items-end">
+            <button id="clear-filter" class="btn btn-success">Limpiar Filtro</button>
+        </div>
+    </div>
         <div id="listaEventos" class="mt-3">
         
             <?php
@@ -113,13 +141,42 @@ include('config.php');
 
 <script>
 $(document).ready(function() {
-    /*$('#tablaEventos').DataTable({
-        "pagingType": "full_numbers", // Agrega paginación completa
-        "language": { // Personaliza el idioma de DataTable
-            "url": "//cdn.datatables.net/plug-ins/1.11.5/i18n/Spanish.json" // Utiliza el archivo de idioma español
+    // Inicializar DataTable
+    //var table = $('#tablaEventos').DataTable();
+    new DataTable('#tablaEventos', {
+    layout: {
+        topStart: {
+            buttons: ['excel', 'pdf', 'print']
         }
-    });*/
-    new DataTable('#tablaEventos');
+    }
+});
 
+    // Filtros personalizados
+    $.fn.dataTable.ext.search.push(
+        function(settings, data, dataIndex) {
+            var min = $('#min-date').val();
+            var max = $('#max-date').val();
+            var date = data[7] || 0; // Usar la columna "Fecha de ultima clase"
+
+            if (
+                (min === "" || max === "") ||
+                (min <= date && date <= max)
+            ) {
+                return true;
+            }
+            return false;
+        }
+    );
+
+    // Evento para aplicar los filtros
+    $('#min-date, #max-date').change(function() {
+        table.draw();
+    });
+    // Evento para limpiar los filtros
+    $('#clear-filter').click(function() {
+        $('#min-date').val('');
+        $('#max-date').val('');
+        table.draw();
+    });
 });
 </script>
