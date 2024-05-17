@@ -46,6 +46,22 @@
 
     <div class="container mt-3">
         <h3 class="custom-heading">Historial de Alumnos</h3>
+
+        <!-- Campos de entrada para filtrar por rango de fechas -->
+    <div class="row mb-3">
+        <div class="col-md-4">
+            <label for="min-date">Fecha Inicio:</label>
+            <input type="date" id="min-date" class="form-control">
+        </div>
+        <div class="col-md-4">
+            <label for="max-date">Fecha Fin:</label>
+            <input type="date" id="max-date" class="form-control">
+        </div>
+        <div class="col-md-4 d-flex align-items-end">
+            <button id="clear-filter" class="btn btn-success">Limpiar Filtro</button>
+        </div>
+    </div>
+
         <div id="listaEventos" class="mt-3">
             <?php
             
@@ -99,7 +115,7 @@
                     if (is_array($asistencia)) {
                         // Mostrar el estado de cada checkbox
                         for ($i = 1; $i <= 10; $i++) {
-                            echo '<input type="checkbox" name="asistio[]" value="clase'.$i.'"';
+                            echo '<input type="checkbox" name="asistio[]" value="clase'.$i.'" disabled';
                             if (in_array('clase'.$i, $asistencia)) {
                                 echo ' checked';
                             }
@@ -109,7 +125,7 @@
                     } else {
                         // Si no hay datos de asistencia, mostrar todos los checkboxes desmarcados
                         for ($i = 1; $i <= 10; $i++) {
-                            echo '<input type="checkbox" name="asistio[]" value="clase'.$i.'">';
+                            echo '<input type="checkbox" name="asistio[]" value="clase'.$i.'" disabled>';
                             //echo '<label for="clase'.$i.'">Clase '.$i.'</label>'; 
                         }
                     }
@@ -132,7 +148,7 @@
 </body>
 </html>
 
-<script>
+<!--<script>
 $(document).ready(function() {
     /*$('#tablaEventos').DataTable({
         "pagingType": "full_numbers", // Agrega paginación completa
@@ -142,5 +158,40 @@ $(document).ready(function() {
     });*/
     new DataTable('#tablaEventos');
 
+});
+</script>
+-->
+<script>
+$(document).ready(function() {
+    // Inicializar DataTable
+    var table = $('#tablaEventos').DataTable();
+    
+    // Filtros personalizados
+    $.fn.dataTable.ext.search.push(
+        function(settings, data, dataIndex) {
+            var min = $('#min-date').val();
+            var max = $('#max-date').val();
+            var date = data[6] || 0; // Usar la columna "Fecha de ultima clase"
+
+            if (
+                (min === "" || max === "") ||
+                (min <= date && date <= max)
+            ) {
+                return true;
+            }
+            return false;
+        }
+    );
+
+    // Evento para aplicar los filtros
+    $('#min-date, #max-date').change(function() {
+        table.draw();
+    });
+    // Evento para limpiar los filtros
+    $('#clear-filter').click(function() {
+        $('#min-date').val('');
+        $('#max-date').val('');
+        table.draw();
+    });
 });
 </script>

@@ -4,7 +4,10 @@ include('config.php');
 
 // Función para calcular la recaudación por día
 function calcularRecaudacionPorDia($con) {
-    $query = "SELECT SUM(pago) AS total_pago FROM Finanzas";
+    $query = "SELECT SUM(f.pago) AS total_pago 
+    FROM Finanzas AS f
+    LEFT JOIN eventoscalendar AS e ON f.alumnoId = e.id
+    WHERE DATE(fecha_inicio) = CURDATE()";
     $result = mysqli_query($con, $query);
     $row = mysqli_fetch_assoc($result);
     return $row['total_pago'];
@@ -16,7 +19,7 @@ function calcularRecaudacionPorSemana($con) {
     FROM Finanzas AS f
     LEFT JOIN eventoscalendar AS e ON f.alumnoId = e.id
     WHERE WEEK(e.fecha_inicio) = WEEK(NOW())";
-$result = mysqli_query($con, $query);
+    $result = mysqli_query($con, $query);
     $row = mysqli_fetch_assoc($result);
     return $row['total_pago'];
 }

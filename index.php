@@ -99,7 +99,8 @@ $(document).ready(function() {
   select: function(start, end){
       $("#exampleModal").modal();
       $("input[name=fecha_inicio]").val(start.format('DD-MM-YYYY'));
-      
+      $("input[name=fecha_ult]").val(start.format('YYYY-MM-DD'));
+
       var horaInicio = start.format('HH:mm');
       var horaFin = end.format('HH:mm');
   
