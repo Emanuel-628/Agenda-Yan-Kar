@@ -30,7 +30,7 @@ $fecha_hora_str = $fecha_prox . 'T' . $hora_fin;
 
 $timestamp2 = $fecha_hora_str;
 
-$asistencia = implode(',',$_POST['asistio']);
+$asistencia = isset($_POST['asistio']) ? implode(',', $_POST['asistio']) : '';
 
 $UpdateProd = ("UPDATE eventoscalendar 
     SET 

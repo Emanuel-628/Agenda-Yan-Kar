@@ -24,8 +24,8 @@ CREATE TABLE `eventoscalendar` (
   `fecha_fin` varchar(20) DEFAULT NULL,
   `fecha_prox` varchar(20) DEFAULT NULL,
   `fecha_ult` varchar(20) DEFAULT NULL,
-  `ci` varchar(20) DEFAULT NULL, 
-  `cel` varchar(20) DEFAULT NULL, 
+  `ci` int DEFAULT NULL, 
+  `cel` int DEFAULT NULL, 
   `asistio` varchar(255) DEFAULT NULL,
   `hora_inicio` varchar(20) DEFAULT NULL,
   `hora_fin` varchar(20) DEFAULT NULL,  
@@ -36,15 +36,15 @@ CREATE TABLE `eventoscalendar` (
 CREATE TABLE `Instructor` (
   `id` int NOT NULL AUTO_INCREMENT,
   `instructor` varchar(250) DEFAULT NULL,
-  `ci` varchar(20) DEFAULT NULL,
-  `cel` varchar(20) DEFAULT NULL,
+  `ci` int DEFAULT NULL,
+  `cel` int DEFAULT NULL,
   `foto` blob,
    PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 CREATE TABLE `Finanzas` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `recaudacion` int DEFAULT NULL,
+  `fecha_pago` varchar(200) DEFAULT NULL,
   `pago` int DEFAULT NULL,
   `medioPago` varchar(200) DEFAULT NULL,
   `receptor` varchar(255) DEFAULT NULL,
@@ -53,5 +53,9 @@ CREATE TABLE `Finanzas` (
    PRIMARY KEY (`id`),
    FOREIGN KEY (alumnoId) REFERENCES eventoscalendar(id)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+ALTER TABLE `Finanzas`
+  ADD UNIQUE KEY `unique_alumnoId` (`alumnoId`);
+
 
 COMMIT;

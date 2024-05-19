@@ -4,10 +4,10 @@ include('config.php');
 
 // Función para calcular la recaudación por día
 function calcularRecaudacionPorDia($con) {
-    $query = "SELECT SUM(f.pago) AS total_pago 
-    FROM Finanzas AS f
-    LEFT JOIN eventoscalendar AS e ON f.alumnoId = e.id
-    WHERE DATE(fecha_inicio) = CURDATE()";
+    $query = "SELECT fecha_pago, SUM(pago) AS total_pago 
+          FROM Finanzas 
+          WHERE DATE(fecha_pago) = CURDATE()";
+
     $result = mysqli_query($con, $query);
     $row = mysqli_fetch_assoc($result);
     return $row['total_pago'];
@@ -15,10 +15,9 @@ function calcularRecaudacionPorDia($con) {
 
 // Función para calcular la recaudación por semana
 function calcularRecaudacionPorSemana($con) {
-    $query = "SELECT SUM(f.pago) AS total_pago 
-    FROM Finanzas AS f
-    LEFT JOIN eventoscalendar AS e ON f.alumnoId = e.id
-    WHERE WEEK(e.fecha_inicio) = WEEK(NOW())";
+    $query = "SELECT fecha_pago, SUM(pago) AS total_pago 
+    FROM Finanzas 
+    WHERE WEEK(fecha_pago) = WEEK(NOW())";
     $result = mysqli_query($con, $query);
     $row = mysqli_fetch_assoc($result);
     return $row['total_pago'];
@@ -26,10 +25,9 @@ function calcularRecaudacionPorSemana($con) {
 
 // Función para calcular la recaudación por mes
 function calcularRecaudacionPorMes($con) {
-    $query = "SELECT SUM(f.pago) AS total_pago
-     FROM Finanzas AS f 
-     LEFT JOIN eventoscalendar AS e ON f.alumnoId = e.id
-     WHERE MONTH(e.fecha_inicio) = MONTH(NOW())";
+    $query = "SELECT fecha_pago, SUM(pago) AS total_pago 
+    FROM Finanzas
+    WHERE MONTH(fecha_pago) = MONTH(NOW())";
     $result = mysqli_query($con, $query);
     $row = mysqli_fetch_assoc($result);
     return $row['total_pago'];

@@ -87,11 +87,11 @@
     </div>
         <div id="listaEventos" class="mt-3">
         
-            <?php
-include('config.php');
-        $query = "SELECT e.evento,e.fecha_inicio, e.ci, f.pago, f.medioPago, f.receptor, f.observacion
-          FROM Finanzas AS f
-          LEFT JOIN eventoscalendar AS e ON f.alumnoId = e.id";
+        <?php
+            include('config.php');
+            $query = "SELECT e.evento, e.ci, f.pago, f.medioPago, f.receptor, f.observacion, f.fecha_pago
+            FROM Finanzas AS f
+            LEFT JOIN eventoscalendar AS e ON f.alumnoId = e.id";
 
             $result = mysqli_query($con, $query);
 
@@ -120,8 +120,8 @@ include('config.php');
                     echo '<td>' . $row['medioPago'] . '</td>';
                     echo '<td>' . $row['receptor'] . '</td>';
                     echo '<td>' . $row['observacion'] . '</td>';
-                    //echo '<td>' . $row['fecha_inicio'] . '</td>';
-                    echo '<td>' . substr($row['fecha_inicio'], 0, 10) . '</td>';
+                    echo '<td>' . $row['fecha_pago'] . '</td>';
+                    //echo '<td>' . substr($row['fecha_inicio'], 0, 10) . '</td>';
                     echo '</tr>';
                     $contador++;
                 }
@@ -142,14 +142,22 @@ include('config.php');
 <script>
 $(document).ready(function() {
     // Inicializar DataTable
-    //var table = $('#tablaEventos').DataTable();
-    new DataTable('#tablaEventos', {
+    var table = $('#tablaEventos').DataTable(
+        {
+        layout: {
+            topStart: {
+                buttons: ['excel', 'pdf', 'print']
+            }
+        }
+    });
+
+   /* new DataTable('#tablaEventos', {
     layout: {
         topStart: {
             buttons: ['excel', 'pdf', 'print']
         }
     }
-});
+    });*/
 
     // Filtros personalizados
     $.fn.dataTable.ext.search.push(

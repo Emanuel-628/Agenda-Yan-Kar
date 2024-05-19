@@ -36,13 +36,13 @@
     <div class="form-group">
 			<label for="ci" class="col-sm-12 control-label">Numero de cedula</label>
 			<div class="col-sm-10">
-				<input type="text" class="form-control" name="ci" id="ci" />
+				<input type="number" class="form-control" name="ci" id="ci" />
 			</div>
 		</div>
     <div class="form-group">
 			<label for="cel" class="col-sm-12 control-label">Numero de telefono</label>
 			<div class="col-sm-10">
-				<input type="text" class="form-control" name="cel" id="cel" />
+				<input type="number" class="form-control" name="cel" id="cel" />
 			</div>
 		</div>
     <div class="form-group">

@@ -178,15 +178,22 @@ $(document).ready(function() {
 <script>
 $(document).ready(function() {
     // Inicializar DataTable
-    //var table = $('#tablaEventos').DataTable();
+    var table = $('#tablaEventos').DataTable(
+        {
+        layout: {
+            topStart: {
+                buttons: ['excel', 'pdf', 'print']
+            }
+        }
+    });
 
-    new DataTable('#tablaEventos', {
+   /* new DataTable('#tablaEventos', {
     layout: {
         topStart: {
             buttons: ['excel', 'pdf', 'print']
         }
     }
-});
+    });*/
 
     
     // Filtros personalizados

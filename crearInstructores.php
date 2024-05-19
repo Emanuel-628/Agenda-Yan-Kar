@@ -34,15 +34,15 @@
       <form action="guardarInstructor.php" method="post" enctype="multipart/form-data">
         <div class="mb-3">
           <label for="instructor" class="form-label">Nombre del Instructor</label>
-          <input type="text" class="form-control" id="instructor" name="instructor">
+          <input type="text" class="form-control" id="instructor" name="instructor" required>
         </div>
         <div class="mb-3">
           <label for="ci" class="form-label">Cedula de Identidad</label>
-          <input type="text" class="form-control" id="ci" name="ci">
+          <input type="number" class="form-control" id="ci" name="ci" required>
         </div>
         <div class="mb-3">
           <label for="cel" class="form-label">Numero de telefono</label>
-          <input type="text" class="form-control" id="cel" name="cel">
+          <input type="number" class="form-control" id="cel" name="cel" required>
         </div>
         <div class = "mb-3">
           <label for = "foto">  Foto </label>

@@ -29,25 +29,25 @@
     <div class="form-group">
 			<label for="evento" class="col-sm-12 control-label">Nombre del Alumno</label>
 			<div class="col-sm-10">
-				<input type="text" class="form-control" name="evento" id="evento" />
+				<input type="text" class="form-control" name="evento" id="evento" required/>
 			</div>
 		</div>
     <div class="form-group">
 			<label for="ci" class="col-sm-12 control-label">Numero de cedula</label>
 			<div class="col-sm-10">
-				<input type="text" class="form-control" name="ci" id="ci" />
+				<input type="number" class="form-control" name="ci" id="ci" required/>
 			</div>
 		</div>
     <div class="form-group">
 			<label for="cel" class="col-sm-12 control-label">Numero de telefono</label>
 			<div class="col-sm-10">
-				<input type="text" class="form-control" name="cel" id="cel" />
+				<input type="number" class="form-control" name="cel" id="cel" required/>
 			</div>
 		</div>
     <div class="form-group">
       <label for="fecha_inicio" class="col-sm-12 control-label">Fecha de Hoy</label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" name="fecha_inicio" id="fecha_inicio" placeholder="Fecha Inicio" disabled>
+        <input type="text" class="form-control" name="fecha_inicio" id="fecha_inicio" placeholder="Fecha Inicio">
       </div>
     </div>
     <div class="form-group">
@@ -184,7 +184,7 @@
           }
 
           // Comparar las fechas
-          if (fechaInicio >= fechaProx) {
+          if (fechaInicio > fechaProx) {
             alert('La fecha de inicio debe ser menor que la fecha de próxima clase');
             event.preventDefault();
           }

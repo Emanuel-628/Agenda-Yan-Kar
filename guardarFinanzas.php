@@ -6,9 +6,33 @@ $monto = ucwords($_REQUEST['pago']);
 $medioPago = ucwords($_REQUEST['medioPago']);
 $receptor = ucwords($_REQUEST['receptor']);
 $observacion = ucwords($_REQUEST['observacion']);
-$alumnoId        = $_REQUEST['alumnoId'];
+$fecha_pago = ucwords($_REQUEST['fecha_pago']);    
+$alumnoId = $_REQUEST['alumnoId'];
 
-$sql = "INSERT INTO Finanzas (pago,medioPago,receptor,observacion,alumnoId) VALUES ('" .$monto. "','" .$medioPago. "','" .$receptor. "','" .$observacion. "','" .$alumnoId. "')";
+$sql = "INSERT INTO Finanzas (
+    pago,
+    medioPago,
+    receptor,
+    observacion,
+    fecha_pago,
+    alumnoId
+    ) 
+    VALUES 
+    ('" .$monto. "',
+    '" .$medioPago. "',
+    '" .$receptor. "',
+    '" .$observacion. "',
+    '" .$fecha_pago. "',
+    '" .$alumnoId. "'
+    )
+    ON DUPLICATE KEY UPDATE 
+    pago = VALUES(pago),
+    medioPago = VALUES(medioPago),
+    receptor = VALUES(receptor),
+    observacion = VALUES(observacion),
+    fecha_pago = VALUES(fecha_pago)
+    ";
+
 
 $resultadoNuevoEvento = mysqli_query($con, $sql);
 

@@ -53,29 +53,33 @@
         <label for="pago" class="form-label">Introduzca el monto</label>
         <input type="number" class="form-control" id="pago" name="pago">
       </div>
-        <div class="mb-3">
-          <label for="medioPago" class="form-label">Selecciona el metodo de pago</label>
-          <select class="form-control" id="medioPago" name="medioPago">
-                <option value="Efectivo" selected>Efectivo</option>
-                <option value="Transferencia">Transferencia</option>
-                <option value="Giro">Giro</option>
-                <option value="Cheque">Cheque</option>
-            </select>
-        </div>
-        <div class="mb-3">
-          <label for="receptor" class="form-label">Cuenta que recibe</label>
-          <select class="form-control" id="receptor" name="receptor">
-                <option value="" selected>Seleccionar...</option>      
-                <option value="Lili">Lili</option>
-                <option value="Lety">Lety</option>
-                <option value="Bichi">Bichi</option>
-            </select>
-        </div>
-        <div class="mb-3">
-          <label for="observacion" class="form-label">Observacion</label>
-          <input type="text" class="form-control" id="observacion" name="observacion">
-        </div>
-        <button type="submit" class="btn btn-primary">Enviar</button>
+      <div class="mb-3">
+      <label for="fecha_pago" class="form-label">Fecha de Pago</label>
+        <input type="date" class="form-control" name="fecha_pago" id="fecha_pago">
+      </div>
+      <div class="mb-3">
+        <label for="medioPago" class="form-label">Selecciona el metodo de pago</label>
+        <select class="form-control" id="medioPago" name="medioPago">
+          <option value="Efectivo" selected>Efectivo</option>
+          <option value="Transferencia">Transferencia</option>
+          <option value="Giro">Giro</option>
+          <option value="Cheque">Cheque</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="receptor" class="form-label">Cuenta que recibe</label>
+        <select class="form-control" id="receptor" name="receptor">
+          <option value="" selected>Seleccionar...</option>      
+          <option value="Lili">Lili</option>
+          <option value="Lety">Lety</option>
+          <option value="Bichi">Bichi</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="observacion" class="form-label">Observacion</label>
+        <textarea class="form-control" name="observacion" id="observacion"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Enviar</button>
       </form>
     </div>
   </div>

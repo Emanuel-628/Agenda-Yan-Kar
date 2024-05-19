@@ -56,11 +56,11 @@ if(isset($_GET['id']) && !empty($_GET['id'])) {
                 </div>
                 <div class="mb-3">
                     <label for="instructor" class="form-label">Cedula de Identidad</label>
-                    <input type="text" class="form-control" id="ci" name="ci" value="<?php echo $instructor['ci']; ?>">
+                    <input type="number" class="form-control" id="ci" name="ci" value="<?php echo $instructor['ci']; ?>">
                 </div>
                 <div class="mb-3">
                     <label for="instructor" class="form-label">Numero de telefono</label>
-                    <input type="text" class="form-control" id="cel" name="cel" value="<?php echo $instructor['cel']; ?>">
+                    <input type="number" class="form-control" id="cel" name="cel" value="<?php echo $instructor['cel']; ?>">
                 </div>
                 <div class = "mb-3">
                     <label for = "foto">Foto </label>
